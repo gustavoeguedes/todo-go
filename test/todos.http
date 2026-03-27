@@ -1,0 +1,27 @@
+POST http://localhost:8080/api/todos
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzQ2NTMyNTksInN1YiI6IjgwOTI2YTA1LTIyYzMtNDllMC1hZGJlLWY4YzBkZGYzMmZkMiJ9.77HJo_jAPeZAOeMvsEDzXL90-fGBoOPjJifsH3qGomk
+
+{
+    "title": "Buy groceries"
+}
+
+###
+
+PUT http://localhost:8080/api/todos/6190e553-207a-444f-80e3-433742767c43
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzQ2NTI5MjUsInN1YiI6IjgwOTI2YTA1LTIyYzMtNDllMC1hZGJlLWY4YzBkZGYzMmZkMiJ9.J7MUJx6W4klULJpb7NSkXOGaMy-yUeco7dkH3x0lgyI
+
+###
+
+DELETE http://localhost:8080/api/todos/6190e553-207a-444f-80e3-433742767c43
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzQ2NTMyNTksInN1YiI6IjgwOTI2YTA1LTIyYzMtNDllMC1hZGJlLWY4YzBkZGYzMmZkMiJ9.77HJo_jAPeZAOeMvsEDzXL90-fGBoOPjJifsH3qGomk
+
+###
+
+GET http://localhost:8080/api/todos?limit=10&page=2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzQ2NTM2NzIsInN1YiI6IjgwOTI2YTA1LTIyYzMtNDllMC1hZGJlLWY4YzBkZGYzMmZkMiJ9.PuQYL2478GLWgYXcPZwbiqOVR-dGwKLk-im-yjhz03o
+
+###
+GET localhost:8080/api/todos/dc02bc68-e38d-4539-b8c6-ea2a608c3447
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzQ2NTQxOTMsInN1YiI6IjgwOTI2YTA1LTIyYzMtNDllMC1hZGJlLWY4YzBkZGYzMmZkMiJ9.sOut25FXEDbebtCRgWeab2yqcW1bfjxswtVB6R1gaGk

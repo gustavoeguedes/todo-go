@@ -48,7 +48,7 @@ func TestTodo_Update(t *testing.T) {
 		t.Error(err)
 	}
 
-	err = todoDb.Update(todo)
+	err = todoDb.Update(todo.ID.String(), userId.String())
 	assert.NoError(t, err)
 }
 
@@ -66,7 +66,7 @@ func TestTodo_Delete(t *testing.T) {
 		t.Error(err)
 	}
 
-	err = todoDb.Delete(todo)
+	err = todoDb.Delete(todo.ID.String(), userId.String())
 	assert.NoError(t, err)
 
 	var todoFound entity.Todo
@@ -78,7 +78,7 @@ func TestTodo_Delete(t *testing.T) {
 
 	todo.UserID = entity.NewID()
 
-	err = todoDb.Delete(todo)
+	err = todoDb.Delete(todo.ID.String(), todo.UserID.String())
 	assert.Error(t, err)
 }
 

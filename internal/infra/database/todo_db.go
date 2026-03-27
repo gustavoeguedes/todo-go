@@ -22,8 +22,8 @@ func (t Todo) FindByID(id, userId string) (*entity.Todo, error) {
 	return &todo, nil
 }
 
-func (t Todo) Update(todo *entity.Todo) error {
-	todoExists, err := t.FindByID(todo.ID.String(), todo.UserID.String())
+func (t Todo) Update(todoId, userId string) error {
+	todoExists, err := t.FindByID(todoId, userId)
 	if err != nil {
 		return err
 	}
@@ -31,8 +31,8 @@ func (t Todo) Update(todo *entity.Todo) error {
 	return t.DB.Save(todoExists).Error
 }
 
-func (t Todo) Delete(todo *entity.Todo) error {
-	todoExists, err := t.FindByID(todo.ID.String(), todo.UserID.String())
+func (t Todo) Delete(todoId, userId string) error {
+	todoExists, err := t.FindByID(todoId, userId)
 	if err != nil {
 		return err
 	}
