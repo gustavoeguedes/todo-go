@@ -20,3 +20,11 @@ func TestTodo_Validate(t *testing.T) {
 	_, err := NewTodo(userId, "")
 	assert.ErrorIs(t, err, ErrInvalidTitle)
 }
+
+func TestTodo_MarkAsDone(t *testing.T) {
+	userId := NewID()
+	todo, err := NewTodo(userId, "Test Todo")
+	assert.NoError(t, err)
+	todo.MarkDone()
+	assert.True(t, todo.Done)
+}

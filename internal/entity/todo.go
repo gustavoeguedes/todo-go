@@ -7,10 +7,10 @@ var (
 )
 
 type Todo struct {
-	ID     ID     `json:"id"`
-	UserID ID     `json:"user_id"`
-	Title  string `json:"title"`
-	Done   bool   `json:"done"`
+	ID     ID     `json:"id" db:"id"`
+	UserID ID     `json:"userId" db:"user_id" gorm:"column:user_id;not null;index"`
+	Title  string `json:"title" db:"title"`
+	Done   bool   `json:"done" db:"done"`
 }
 
 func NewTodo(userID ID, title string) (*Todo, error) {

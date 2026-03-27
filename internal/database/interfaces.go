@@ -10,8 +10,8 @@ type UserInterface interface {
 
 type TodoInterface interface {
 	Create(todo *entity.Todo) error
-	FindByID(id string) (*entity.Todo, error)
-	FindAll(page, limit int, sort string) ([]entity.Todo, error)
+	FindByID(id, userId string) (*entity.Todo, error)
+	FindAll(page, limit int, userId string) ([]entity.Todo, error)
 	Update(todo *entity.Todo) error
-	Delete(id string) error
+	Delete(todo *entity.Todo) error
 }
