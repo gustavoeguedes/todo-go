@@ -1,18 +1,28 @@
-POST http://localhost:8080/api/register
+@baseUrl = http://localhost:8080
+@name = john doe
+@email = j@j.com
+@password = 123456
+
+POST {{baseUrl}}/api/register
 Content-Type: application/json
 
 {
-    "name": "john doe",
-    "email": "j@j.com",
-    "password": "123456"
+    "name": "{{name}}",
+    "email": "{{email}}",
+    "password": "{{password}}"
 }
 
 ###
 
-POST http://localhost:8080/api/login
+# @name login
+POST {{baseUrl}}/api/login
 Content-Type: application/json
 
 {
-    "email": "j@j.com",
-    "password": "123456"
+    "email": "{{email}}",
+    "password": "{{password}}"
 }
+
+###
+
+@token = {{login.response.body.$.accessToken}}

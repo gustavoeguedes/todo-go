@@ -1,6 +1,23 @@
-POST http://localhost:8080/api/todos
+@baseUrl = http://localhost:8080
+@email = j@j.com
+@password = 123456
+
+# @name login
+POST {{baseUrl}}/api/login
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzQ2NTMyNTksInN1YiI6IjgwOTI2YTA1LTIyYzMtNDllMC1hZGJlLWY4YzBkZGYzMmZkMiJ9.77HJo_jAPeZAOeMvsEDzXL90-fGBoOPjJifsH3qGomk
+
+{
+    "email": "{{email}}",
+    "password": "{{password}}"
+}
+
+###
+
+@token = {{login.response.body.$.accessToken}}
+
+POST {{baseUrl}}/api/todos
+Content-Type: application/json
+Authorization: Bearer {{token}}
 
 {
     "title": "Buy groceries"
@@ -8,20 +25,20 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzQ2NTMyN
 
 ###
 
-PUT http://localhost:8080/api/todos/6190e553-207a-444f-80e3-433742767c43
+PUT {{baseUrl}}/api/todos/6190e553-207a-444f-80e3-433742767c43
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzQ2NTI5MjUsInN1YiI6IjgwOTI2YTA1LTIyYzMtNDllMC1hZGJlLWY4YzBkZGYzMmZkMiJ9.J7MUJx6W4klULJpb7NSkXOGaMy-yUeco7dkH3x0lgyI
+Authorization: Bearer {{token}}
 
 ###
 
-DELETE http://localhost:8080/api/todos/6190e553-207a-444f-80e3-433742767c43
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzQ2NTMyNTksInN1YiI6IjgwOTI2YTA1LTIyYzMtNDllMC1hZGJlLWY4YzBkZGYzMmZkMiJ9.77HJo_jAPeZAOeMvsEDzXL90-fGBoOPjJifsH3qGomk
+DELETE {{baseUrl}}/api/todos/6190e553-207a-444f-80e3-433742767c43
+Authorization: Bearer {{token}}
 
 ###
 
-GET http://localhost:8080/api/todos?limit=10&page=2
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzQ2NTM2NzIsInN1YiI6IjgwOTI2YTA1LTIyYzMtNDllMC1hZGJlLWY4YzBkZGYzMmZkMiJ9.PuQYL2478GLWgYXcPZwbiqOVR-dGwKLk-im-yjhz03o
+GET {{baseUrl}}/api/todos?limit=10&page=2
+Authorization: Bearer {{token}}
 
 ###
-GET localhost:8080/api/todos/dc02bc68-e38d-4539-b8c6-ea2a608c3447
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzQ2NTQxOTMsInN1YiI6IjgwOTI2YTA1LTIyYzMtNDllMC1hZGJlLWY4YzBkZGYzMmZkMiJ9.sOut25FXEDbebtCRgWeab2yqcW1bfjxswtVB6R1gaGk
+GET {{baseUrl}}/api/todos/dc02bc68-e38d-4539-b8c6-ea2a608c3447
+Authorization: Bearer {{token}}
